@@ -10,7 +10,7 @@ both of which would override the respective default file in the core APP on a pe
 
 In console run
 ```php
-composer require codeblastr/multisite
+composer require buildrr/multisite
 ```
 
 Replace the first 6 lines  of APP/config/bootstrap.php with the following.
