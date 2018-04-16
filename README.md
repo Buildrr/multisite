@@ -28,13 +28,13 @@ require __DIR__ . '/paths.php';
 require ROOT . DS . 'sites' . DS . 'bootstrap.php';
 ```
 
-In APP/composer.json add ```"CodeBlastrMultiSite\\Console\\AutoLoader::postAutoloadDump"`` to ``"post-autoload-dump"`` like this:
+In APP/composer.json add ```"BuildrrMultiSite\\Console\\AutoLoader::postAutoloadDump"`` to ``"post-autoload-dump"`` like this:
 ```php
 "scripts": {
     "post-install-cmd": "App\\Console\\Installer::postInstall",
     "post-autoload-dump": [
         "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
-        "CodeBlastrMultiSite\\Console\\AutoLoader::postAutoloadDump"
+        "BuildrrMultiSite\\Console\\AutoLoader::postAutoloadDump"
     ]
 },
 ```
@@ -57,7 +57,7 @@ In APP/src/View/AppView.php add both of the following:
 ```php
 // near the top of the file, outside of class AppView()
 
-use CodeBlastrMultiSite\View\MultisiteView;
+use BuildrrMultiSite\View\MultisiteView;
 
 // inside of class AppView()
 /**
@@ -111,14 +111,13 @@ If there is a plugin  that you want individual sites to have access to customize
 autoload parameter of your main ``APP/composer.json`` file.
 Formatted as ``"VendorName\\PluginName\\": "./SITE_DIR/vendor/[vendor name]/[plugin name]/src"``, for example...
 
-
 ```php
 // APP/composer.json
 
 "autoload": {
     "psr-4": {
         "App\\": "src",
-        "CodeBlastrMultiSite\\": "./SITE_DIR/vendor/codeblastr/multisite/src"
+        "BuildrrMultiSite\\": "./SITE_DIR/vendor/buildrr/multisite/src"
     }
 },
 ```
