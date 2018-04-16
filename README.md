@@ -28,6 +28,14 @@ require __DIR__ . '/paths.php';
 require ROOT . DS . 'sites' . DS . 'bootstrap.php';
 ```
 
+Find ```Configure::config('default', new PhpConfig());``` and replace with:
+
+```
+$__config_path = false;
+if(defined('SITE_DIR')) $__config_path = SITE_DIR . DS . 'config' . DS;
+Configure::config('default', new PhpConfig($__config_path));
+```
+
 In APP/composer.json add ```"BuildrrMultiSite\\Console\\AutoLoader::postAutoloadDump"`` to ``"post-autoload-dump"`` like this:
 ```php
 "scripts": {
@@ -39,7 +47,7 @@ In APP/composer.json add ```"BuildrrMultiSite\\Console\\AutoLoader::postAutoload
 },
 ```
 
-In APP/config/app.php set App.paths.templates like this:
+In SITE_DIR/config/app.php set App.paths.templates like this:
 ```php
 'App' => [
 	'paths' => [
